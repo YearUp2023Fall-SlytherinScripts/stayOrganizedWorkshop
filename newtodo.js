@@ -53,7 +53,7 @@ function displayTaskClass() {
 
     if (urgencySelect !== null) {
         let classification = urgencySelect.value;
-
+// add logic for values -- to be fixed
         if (classification === "Low") {
 
         } else if (classification === "Medium") {
@@ -62,7 +62,7 @@ function displayTaskClass() {
 
         }
 
-        displayFormResults();
+        addTodo();
     }
 }
 
