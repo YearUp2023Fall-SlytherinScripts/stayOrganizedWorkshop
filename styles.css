@@ -50,6 +50,11 @@ header.shadow{
     font-weight: 600;
     color: var(--bf-color)
 }
+.logo-image {
+    width: 1px; /* Adjust the width as needed */
+    height: 1px; /* Maintain aspect ratio */
+    margin: 1px; /* Add margin for spacing */
+}
 .navbar{
     display: flex;
     column-gap: 5rem;
@@ -83,8 +88,15 @@ header.shadow{
     display: none;
 }
 .content-container {
-    padding-top: 100px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     
+}
+.button-container {
+    padding-top: 20px;
 }
 .green-button {
     background-color: green;
@@ -93,4 +105,5 @@ header.shadow{
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
+
 }
