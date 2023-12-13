@@ -113,8 +113,8 @@ header.shadow{
     height: 50vh;
     
 }
-.img2 {
-    float: right;
+.video {
+    float: right;   
   }
   
   .clearfix {
@@ -124,4 +124,26 @@ header.shadow{
     text-align: left;
     width: 400px;
     margin: 10px auto;
+}
+.form-group {
+    text-align: left;
+    background-color: green; 
+    color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px auto; 
+}
+.content-container2 {
+    padding: 100px 100px 100px;
+    width: 550px;
+    text-align: center;
+    margin: 10px auto;
+}
+#todoForm {
+    text-align: left;
+}
+#description {
+    width: 300px;
+    height: 150px;
 }

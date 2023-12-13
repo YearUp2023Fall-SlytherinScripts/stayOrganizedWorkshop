@@ -19,7 +19,8 @@ function init() {
         .then(data => {
             data.forEach(user => {
                 const option = document.createElement("option");
-                option.textContent = user.id;
+                option.textContent = user.name;
+                option.value = user.id;
                 userIdDropdown.appendChild(option);
             });
         });
