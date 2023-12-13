@@ -88,11 +88,8 @@ header.shadow{
     display: none;
 }
 .content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
+   padding: 100px 100px 100px;
+   text-align: center;
     
 }
 .button-container {
@@ -123,3 +120,8 @@ header.shadow{
   .clearfix {
     overflow: auto;
   }
+.task-box {
+    text-align: left;
+    width: 400px;
+    margin: 10px auto;
+}
