@@ -6,10 +6,12 @@ let categoriesDropdown;
 window.onload = init;
 
 function init() {
-    userIdDropdown = document.getElementById("userIdDropdown");
-    categoriesDropdown = document.getElementById("categoriesDropdown");
-    const addTodoForm = document.getElementById("addTodoForm");
-    addTodoForm.addEventListener("submit", addTodo);
+    userIdDropdown = document.getElementById("userid");
+    categoriesDropdown = document.getElementById("category");
+
+
+    document.getElementById("addTask").addEventListener("click", addTodo);
+
 
     // fetch user id
     fetch("http://localhost:8083/api/users")
@@ -43,74 +45,63 @@ function displayCategories() {
             });
         });
 
-    categoriesDropdown.addEventListener("change", () => {
-        displayTaskClass();
-    });
+    
 }
 
-function displayTaskClass() {
-    let urgencySelect = document.getElementById("urgencySelect");
 
-    if (urgencySelect !== null) {
-        let classification = urgencySelect.value;
-// add logic for values -- to be fixed
-        if (classification === "Low") {
 
-        } else if (classification === "Medium") {
-
-        } else if (classification === "High") {
-
-        }
-
-        addTodo();
-    }
-}
-
-function addTodo(event) {
-    event.preventDefault(); // stops default form submission 
-
+function addTodo() {
     // get form data
-    const formData = new FormData(document.getElementById("addTodoForm"));
+    const formData = new FormData(document.getElementById("todoForm"));
     const todoData = {
-        userid: formData.get("userId"),
-        category: formData.get("categoryId"),
+        userid: formData.get("userid"),
+        category: formData.get("category"),
         description: formData.get("description"),
         deadline: formData.get("deadline"),
         priority: formData.get("urgency")
     };
 
-    // send a post request to api/todos
-
-    // fix post request (400 bad request)
+    // send a POST request to api/todos
     fetch("http://localhost:8083/api/todos", {
         method: "POST",
-       
-
-
-    })
+        headers: {
+            "Content-Type": "application/json",
+        },
+        
+        body: JSON.stringify(todoData),
+        })
     .then(response => response.json())
     .then(data => {
-        // console.log tests
-        console.log("ToDo added successfully:", data);
+        console.log("To Do added check:", data);
+        // Clear form fields
+    document.getElementById("todoForm").reset();
+
+    
         displayTodoCard(data);
     })
     .catch(error => {
-        console.error("Error adding ToDo:", error);
+        console.error("Error adding To Do:", error);
+        alert("Please try again.");
     });
+    
 }
+//display in bootstrap card
+ function displayTodoCard(todoData) {
+   const todoCard = document.createElement("div");
+   todoCard.classList.add("todoCard"); 
 
-// function displayTodoCard(todoData) {
-  //  const todoCard = document.createElement("div");
- //   todoCard.classList.add("todoCard"); 
+  todoCard.innerHTML = 
+   `<div class="card border-success mb-3" style="max-width: 18rem;">
+  <div class="card-header"><h4>User ID: ${todoData.userid}</h4></div>
+  <div class="card-body text-success">
+    <h5 class="card-title">Category: ${todoData.category}</h5>
+    <p class="card-text">Description: ${todoData.description}</p>
+    <p class="card-text" >Priority: ${todoData.priority}</p>
+    <p class="card-text">Deadline: ${new Date(todoData.deadline).toLocaleDateString()}</p>
+    </div>
+    </div>
+    `;
 
- //   todoCard.innerHTML = `
- //       <h3>${todoData.description}</h3>
-   //     <p>User ID: ${todoData.userid}</p>
- //       <p>Category: ${todoData.category}</p>
-  //      <p>Deadline: ${todoData.deadline}</p>
-  //      <p>Priority: ${todoData.priority}</p>
- //   `;
-
-  //  const todoContainer = document.getElementById("todoContainer");
-  //  todoContainer.appendChild(todoCard);
-//}
+    const todoContainer = document.getElementById("todoContainer");
+    todoContainer.appendChild(todoCard);
+}
