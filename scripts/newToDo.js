@@ -77,7 +77,6 @@ function addTodo() {
         // Clear form fields
     document.getElementById("todoForm").reset();
 
-    
         displayTodoCard(data);
     })
     .catch(error => {
@@ -92,9 +91,9 @@ function addTodo() {
    todoCard.classList.add("todoCard"); 
 
   todoCard.innerHTML = 
-   `<div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header"><h4>User ID: ${todoData.userid}</h4></div>
-  <div class="card-body text-success">
+   `<div>
+  <div><h4>User ID: ${todoData.userid}</h4></div>
+  <div>
     <h5 class="card-title">Category: ${todoData.category}</h5>
     <p class="card-text">Description: ${todoData.description}</p>
     <p class="card-text" >Priority: ${todoData.priority}</p>
