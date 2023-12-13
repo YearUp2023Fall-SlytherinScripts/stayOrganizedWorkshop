@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do Display</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slytherin Scripts</title>
+        <!-- Link To CSS -->
+        <link rel="stylesheet" href="styles.css">
+        <!-- Box Icons -->
+        <link rel="'stylesheet"
+        href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        
+    </head>
+    <body>
+        <!-- Navbar -->
+        <header>
+            
+            <a href="#" class="logo">Slytherin Scripts</a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="toDo.html" class="home-active">To Do</a></li>
+                <li><a href="./newToDo.html">Add New Task</a></li>
+            </ul>
+        </header>
+
 <body>
+    <div class="content-container">
     <select name="usernames" id="usernameList">
         <!-- DOM elements -->
     </select>
     <div id="userToDoList">
         <!-- User To Do List: Dom Elements -->
     </div>
-    <a href="./newToDo.html">ADD A TO </a>
+    <div class="button-container">
+        <a href="./newToDo.html" class="green-button">Add Task</a>
+    </div>
     <script src="./scripts/toDo.js"></script>
+    </div>
 </body>
 </html>

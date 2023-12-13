@@ -34,7 +34,7 @@ function displayToDoInfo(usernameID) {
                 let newDiv = document.createElement('div');
                 //This is where the data will be displayed
                 // select from data.category, data.description, data.deadline, data.priority
-                newDiv.textContent = data.category;
+                newDiv.innerHTML = `<div class="task-box"> Category: ${data.category} <br> Description: ${data.description} <br>  Deadline: ${data.deadline} <br> Priority: ${data.priority}<hr> </div>`;
                 displayDiv.appendChild(newDiv);
             }
         });

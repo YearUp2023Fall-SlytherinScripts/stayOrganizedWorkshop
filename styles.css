@@ -51,9 +51,9 @@ header.shadow{
     color: var(--bf-color)
 }
 .logo-image {
-    width: 1px; /* Adjust the width as needed */
-    height: 1px; /* Maintain aspect ratio */
-    margin: 1px; /* Add margin for spacing */
+    width: 1px; 
+    height: 1px; 
+    margin: 1px; 
 }
 .navbar{
     display: flex;
@@ -88,11 +88,8 @@ header.shadow{
     display: none;
 }
 .content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+   padding: 100px 100px 100px;
+   text-align: center;
     
 }
 .button-container {
@@ -106,4 +103,25 @@ header.shadow{
     border-radius: 50px;
     font-weight: bold;
 
+}
+.section-container {
+    padding: 50px 30px 50px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    height: 50vh;
+    
+}
+.img2 {
+    float: right;
+  }
+  
+  .clearfix {
+    overflow: auto;
+  }
+.task-box {
+    text-align: left;
+    width: 400px;
+    margin: 10px auto;
 }
